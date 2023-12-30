@@ -6,12 +6,11 @@ from django.http import HttpResponse
 from twilio.rest import Client
 from django.http import HttpResponseRedirect
 
-# Definisi fungsi kirim_pesan_whatsapp
+
 def kirim_pesan_whatsapp(pesan):
     nomorAdmin = '6285236363128'
     url = f"https://api.whatsapp.com/send?phone={nomorAdmin}&text={pesan}"
-    # Anda mungkin ingin menggantikan window.open dengan redirect jika ingin melakukan redirect
-    # window.open(url, '_blank')
+
 
 def beranda(request):
     return render(request, 'myApp/beranda.html')
@@ -34,7 +33,7 @@ def checkout(request):
         
         kirim_pesan_whatsapp(pesan)
         
-        # Redirect atau tampilkan halaman sukses atau lainnya
+
         return HttpResponseRedirect('/path/ke/halaman/sukses/atau/lainnya/')
 
 def chat(request):
@@ -44,11 +43,9 @@ def keranjang(request):
     return render(request, 'keranjang.html')
 
 def add_to_cart(request):
-    # Implementasi Anda di sini
     pass
 
 def place_order(request):
-    # Implementasi Anda di sini
     pass
 
 def ringkasan_order(request):

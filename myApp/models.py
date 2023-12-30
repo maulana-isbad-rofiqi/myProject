@@ -20,4 +20,3 @@ class Pesanan(models.Model):
     email = models.EmailField()
     telepon = models.CharField(max_length=15)
     alamat = models.TextField()
-    # ... tambahkan kolom lain sesuai kebutuhan
