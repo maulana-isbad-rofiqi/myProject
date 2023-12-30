@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 2em 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 3px;
+            position: relative;
+            animation: fadeInUp 1s ease-out, glow 2s infinite alternate 1s;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #17e600, 0 0 40px #e5e10b, 0 0 50px #e60073, 0 0 60px #05e1e5, 0 0 70px #fbf707;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #000dfe, 0 0 40px #052af8, 0 0 50px #0d52e4, 0 0 60px #1304e1, 0 0 70px #3b4df0, 0 0 80px #0e22d6;
+            }
+        }
+
+        /* Gaya untuk marquee */
+        .marquee-text {
+            font-size: 0.8em;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .marquee-text span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 40s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        /* CSS untuk menu login */
+        .login-container {
+            background-color: #ffffff;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #333333;
+            transform: scale(1.05);
+        }
+
+        .login-container .message {
+            text-align: center;
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>SELAMAT DATANG DI HALAMAN LOGIN</h1>
+        <div class="marquee-text">
+            <span>SILAHKAN PILIH PRODUK KAMI SESUAI KEBUTUHAN ANDA JIKA ADA KENDALA DALAM PEMBELIAH ATAU ADA YANG INGIN DI TANYANYA SILAHKAN HUBUNGI KAMI PADA MENU CONTACT TERIMA KASIH ANDA PUAS ADALAH TUJUAN KAMI SELAMAT BERBELANJA</span>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button type="button" onclick="checkLogin()">Login</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Contoh validasi sederhana
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('message').innerText = 'Login berhasil!';
+                // Di sini Anda bisa mengarahkan pengguna ke halaman dashboard atau halaman lainnya
+            } else {
+                document.getElementById('message').innerText = 'Username atau password salah!';
+            }
+        }
+    </script>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,443 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <style>
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 2em 0;
+        }
+  
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 3px;
+            position: relative;
+            animation: fadeInUp 1s ease-out, glow 2s infinite alternate 1s;
+            font-family: Arial, sans-serif;
+        }
+  
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+  
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #17e600, 0 0 40px #e5e10b, 0 0 50px #e60073, 0 0 60px #05e1e5, 0 0 70px #fbf707;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #000dfe, 0 0 40px #052af8, 0 0 50px #0d52e4, 0 0 60px #1304e1, 0 0 70px #3b4df0, 0 0 80px #0e22d6;
+            }
+        }
+  
+        /* Gaya untuk marquee */
+        .marquee-text {
+            font-size: 0.8em;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+  
+        .marquee-text span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 40s linear infinite;
+        }
+  
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+    </style>
+  </head>
+  
+  <body>
+  
+    <header>
+        <h1>SELAMAT BERBELANJA</h1>
+        <div class="marquee-text">
+            <span>SILAHKAN PILIH PRODUK KAMI SESUAI KEBUTUHAN ANDA JIKA ADA KENDALA DALAM PEMBELIAH ATAU ADA YANG INGIN DI TANYANYA SILAHKAN HUBUNGI KAMI PADA MENU CONTACT TERIMA KASIH ANDA PUAS ADALAH TUJUAN KAMI SELAMAT BERBELANJA</span>
+        </div>
+    </header>
+
+  </body>
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 2em 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 3px;
+            position: relative;
+            animation: fadeInUp 1s ease-out, glow 2s infinite alternate 1s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #17e600, 0 0 40px #e5e10b, 0 0 50px #e60073, 0 0 60px #05e1e5, 0 0 70px #fbf707;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #000dfe, 0 0 40px #052af8, 0 0 50px #0d52e4, 0 0 60px #1304e1, 0 0 70px #3b4df0, 0 0 80px #0e22d6;
+            }
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .main-content {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            width: 300px;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            margin: 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .product-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .product button {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product button:hover {
+            background-color: #9baff8;
+            color: #fff;
+        }
+
+        .cart-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #393736;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+
+    </style>
+</head>
+
+
+
+<body>
+
+
+    <div class="main-content">
+        <div class="product">
+            <img src="https://myhartono.com/images/detailed/367/9S7-158571-1256.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop MSI Notebook Katana 15-B13VGK Intel Core i7-13620H</h3>
+                <p>Harga: RP. 1.7500.00</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='/keranjang/'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://myhartono.com/images/detailed/363/90NR0CC1-M008F0.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop Asus Ros Flow Strix G6141JU-I745JG-O Intel Core i7-13650HX</h3>
+                <p>Harga: RP. 3.200.000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://ae01.alicdn.com/kf/Hb002d16fa7ae49b393114f4a10280409y/Topton-Laptop-untuk-game-Intel-Core-i9-10885H-i7-10870H-GTX-1650-4G-16-1-inci.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop Gaming Intel Core i9 10885H i7 10870H GTX 1650 4G 16.1 Inchi</h3>
+                <p>Harga: RP. 1.600.000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://media.pricebook.co.id/article/55704393140ba06a218b4567/55704393140ba06a218b4567_Asus_ROG_GL552JX-pricebook.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop Gaming Asus Rog GL552JX Prosesor Intel Core I7 4720HQ</h3>
+                <p>Harga: RP 2.5000.00</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://i0.wp.com/images-na.ssl-images-amazon.com/images/I/71kcJxMggRL._SS1000_.jpg?resize=1000%2C1000&ssl=1" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop Razer Blade 15 Advanced Edition 2021 FHD Intel Core i7-10875H</h3>
+                <p>Harga: RP. 1.500.000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://www.tmt.my/data/editor/sc-product/5107/10004.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop Gaming Acer Predator Helios Neo 16 PHN16-71-778U I7-13700HX</h3>
+                <p>Harga: RP. 1.400000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://www.allithypermarket.com.my/cdn/shop/files/CP-Shopify_5f2ecc04-5422-4dca-82b2-0889f284babf.jpg?v=1682393160" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop Asus Gaming FX506H-CHN345W Intel Core i5-11400H FHD 144Hz</h3>
+                <p>Harga: RP. 1.800000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2022/11/HC/GU/VO/139444584/lenovo-leadpad-gaming-3-laptop.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Laptop Gaming Lenovo Leadpad Gaming 3 AMD Ryzen 5 4600H</h3>
+                <p>Harga: RP. 1.900000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://cdn.idntimes.com/content-images/community/2023/06/210044164-498510241237539-2405319185439534692-n-8cae70babd9be91b32c87081303630d6-b78d4c297e36298a0486d6a99aa74a3c.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Asus Rog Flow X13 2023 Resmi Rilis, Laptop Gaming Convertible</h3>
+                <p>Harga: RP. 1.780000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://upload.jaknot.com/2023/12/images/products/c97054/original/yindiao-mouse-gaming-led-rgb-wired-6-key-3600-dpi-g5.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Yindiao Mouse Gaming Led RGB Wired 6 Key 3600 DPI - G5 - Gray</h3>
+                <p>Harga: RP. 4.500000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://i.ebayimg.com/images/g/a-QAAOSw59FkuiNE/s-l1200.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Gaming Webcam 1080P USB For PC Desktop Laptop Web Camera with Microphone</h3>
+                <p>Harga: RP. 7.650000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://eg.jumia.is/cms/external/pet/GE810EL1N5E9TNAFAMZ/0a0eb35ff89879555e34bfa3680c7722.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Headset Gaming 3.5mm New Canleen Pro (Headset And Mouse)</h3>
+                <p>Harga: RP. 3.400000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61Z5pW7aelL.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>RM-S400 4 in 1 Gaming Keyboard with headset For PC laptop PS4 & Xbox</h3>
+                <p>Harga: RP. 2.300000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://image.smythstoys.com/zoom/231024.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Geobook 14X Laptop, Headset & Controller Bundle - Xbox Game Pass Edition</h3>
+                <p>Harga: RP. 3.500000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://id-live-01.slatic.net/p/b61e00279fb58df2badd7d232f08b032.jpg" alt="Produk 1">
+            <div class="product-info">
+                <h3>Taffware FAN Cooling Pad / Kipas Laptop Pendingin 14 inch Usb Portable Rgb</h3>
+                <p>Harga: RP. 1.900000</p>
+                <div class="product-buttons">
+                    <button onclick="window.location.href='keranjang'">Keranjang</button>
+                    <button onclick="window.location.href='/contact/'">Pesan</button>
+                    <button class="buy-now-button" onclick="window.location.href='/checkout/'">Beli</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </script>
+
+</body>
+
+
+{% endblock %}

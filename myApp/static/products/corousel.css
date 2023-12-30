@@ -1,0 +1,5 @@
+/* Mengatur ukuran maksimal gambar di dalam carousel */
+#productCarousel img {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0044cc;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #002b80;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Keranjang Belanja</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Gambar</th>
+                    <th>Nama Produk</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><img src="https://myhartono.com/images/detailed/367/9S7-158571-1256.jpg" alt="Produk 1" style="width: 50px; height: 50px;"></td>
+                    <td>Laptop MSI Notebook Katana 15-B13VGK Intel Core i7-13620H</td>
+                    <td>Rp 1.7500.00</td>
+                    <td>1</td>
+                    <td>Rp 1.7500.00</td>
+                </tr>
+
+                <tr>
+                    <td><img src="https://myhartono.com/images/detailed/363/90NR0CC1-M008F0.jpg" alt="Produk 2" style="width: 50px; height: 50px;"></td>
+                    <td>Laptop Asus Ros Flow Strix G6141JU-I745JG-O Intel Core i7-13650HX</td>
+                    <td>Rp 3.200.000</td>
+                    <td>2</td>
+                    <td>Rp 6.400.000</td>
+                </tr>
+
+                <tr>
+                    <td><img src="https://media.pricebook.co.id/article/55704393140ba06a218b4567/55704393140ba06a218b4567_Asus_ROG_GL552JX-pricebook.jpg" alt="Produk 3" style="width: 50px; height: 50px;"></td>
+                    <td>Laptop Gaming Asus Rog GL552JX Prosesor Intel Core I7 4720HQ</td>
+                    <td>Rp 2.5000.00</td>
+                    <td>2</td>
+                    <td>Rp 5.000.000</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <a href="{% url 'checkout' %}" class="checkout-btn">Checkout</a>
+
+    </div>
+</body>
+
+{% endblock %}
